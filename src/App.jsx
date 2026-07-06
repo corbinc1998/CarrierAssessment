@@ -10,7 +10,7 @@ function App() {
   return (
     <>
 <section className="label-header">
-  <img src="/qr-code.png" alt="QR code linking to the troubleshooting guide in the installation manual" width="120" height="120" />
+  <img src="/src/assets/qr-code.png" alt="QR code linking to the troubleshooting guide in the installation manual" width="120" height="120" />
   <p>Scan QR code or reference troubleshooting guide in installation manual.
 The major status code is displayed in the first 2 digits of the display. 
 The minor status code is displayed in the third digit. 
