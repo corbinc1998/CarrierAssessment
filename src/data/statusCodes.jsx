@@ -1,11 +1,3 @@
-// STATUS CODE TABLE (desciption and QR code)             | Menu Navigation (description)
-// Table 1 | Major | Minor | Description -------- Table 2 | System Status         | Main Menu
-//                                                        | Display | Description | Display | Description |
-//                                                        '''''''''''''''
-//                                                        '''''''''''''''
-//                                                        | Component Test              SERVICE LABEL:
-
-
 export const statusColumns = [
     { label: "Major", field: "major" },
     { label: "Minor", field: "minor" },

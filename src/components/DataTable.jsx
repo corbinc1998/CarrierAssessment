@@ -1,11 +1,5 @@
 import { Fragment, useId } from "react"
 import "./DataTable.css";
-// columns:
-// const columns = [
-//     { label: "Major", field: "major" },
-//     { label: "Minor", field: "minor" },
-//     { label: "Description", field: "description" }
-// ]
 
 function DataTable ({caption, columns, rows, getRowKey}){
     const captionId = useId()
