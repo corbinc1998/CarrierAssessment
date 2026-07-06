@@ -4,6 +4,23 @@
 //                                                        '''''''''''''''
 //                                                        '''''''''''''''
 //                                                        | Component Test              SERVICE LABEL:
+
+
+export const statusColumns = [
+    { label: "Major", field: "major" },
+    { label: "Minor", field: "minor" },
+    {
+      label: "Description",
+      field: "description",
+      render: (row) => (
+        <>
+          {row.description}
+          {row.note && <div className="note">{row.note}</div>}
+        </>
+      ),
+    },
+  ];
+
 export const statusCodes = 
 [
 {major: "10", minor: "1", description: "L1 polarity fault", note: "LED: rapid flash"},

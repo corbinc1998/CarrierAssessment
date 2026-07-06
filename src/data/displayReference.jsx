@@ -1,3 +1,8 @@
+export const displayColumns = [
+    { label: "Display", field: "display" },
+    { label: "Description", field: "description" },
+  ];
+
 export const systemStatus = [
     { display: "idL", description: "Idle / Standby Mode" },
     { display: "HE2", description: "High Heating Mode" },

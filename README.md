@@ -67,7 +67,7 @@ I NEED to account for the occasional note parameter:
 ))}
 ```
 
-I now will build the Menu Navigation data (displayReference.js)
+I now will build the Menu Navigation data (displayReference.jsx)
 consisting of 2 array objects:
 ```
 export const systemStatus = [
@@ -83,11 +83,152 @@ export const mainMenu = [
 * one quick note on the menu navigation: in the description for FLt - occurred is spelled wrong: "occured" I corrected this.
 
 
-I now build componentTest.js as it's own data file because it is it's own unique structure.
+I now build componentTest.jsx as it's own data file because it has it's own unique structure.
+I will build the table in the same way, by building a key using Display and Description.
+```
+    <table>
+      <caption>Menu Navigation</caption>
+<thead>
+  <tr>
+    <th scope="col">Display</th>
+    <th scope="col">Description</th>
+  </tr>
+</thead>
+{/* description and qr code here */}
+  <tbody>
+{systemStatus.map((row) =>( 
+  <tr key={`${row.display}.${row.description}`}>
+      <td>{row.display}</td>
+      <td>{row.description}</td>
+  </tr>
+))}
+  </tbody>
+      </table>
+```
+All of the table building done above was just done as testing in App.jsx
+I wanted to just build the tables via the map function.
+
+I now want to design a DataTable (/src/components/DataTables.jsx) component:
+DataTable(caption, columns, rows, getRowKey)
+columns will need to be passed as an array of objects
+Here is the columns data in statusCodes.jsx
+```
+const columns = [
+    { label: "Major", field: "major" },
+    { label: "Minor", field: "minor" },
+    { label: "Description", field: "description" }
+]
+```
+I want to use useId from react so ids are not duplicated since we are rendering the tables - this will increment all ids to make them unique.
+In DataTable.jsx we loop through the column map to display the column headers
+```
+{columns.map((col) => (
+  <th scope="col" key={col.field}>{col.label}</th>
+))}
+```
+Then for the body I loop over the rows, with a nested loop inside for those column values.
+```
+{rows.map((row) => (
+  <tr key={getRowKey(row)}>
+    {columns.map((col) => (
+      <td key={col.field}>{row[col.field]}</td>
+    ))}
+  </tr>
+))}
+```
+
+I can now build the first table in App.jsx
+```
+<DataTable
+caption="Status Code Table"
+columns={statusColumns}
+rows={statusCodes}
+getRowKey={(row) => `${row.major}.${row.minor}`}
+/>
+```
+I build the columns value in displayReference.jsx, it is just 2 columns display and description.
+To create that table for getRowKey I just use row.display,
+the same thing is done for Main Menu
+```
+<DataTable 
+caption="System Status" 
+columns={displayColumns} rows={systemStatus} 
+getRowKey={(row) => row.display} />
+
+<DataTable 
+caption="Main Menu" 
+columns={displayColumns} 
+rows={mainMenu} getRowKey={(row) => row.display} />
+```
+
+Now I wire the note field back into the tables.
+To do this I will update the following line:
+```
+<td key={col.field}>
+    {row[col.field]}
+</td>
+```
+To this - this checks if a render has been defined in the columns of any of the data:
+```
+<td key={col.field}>
+  {col.render ? col.render(row) : row[col.field]}
+</td>
+```
+
+here is the updated statusColumns:
+```
+export const statusColumns = [
+    { label: "Major", field: "major" },
+    { label: "Minor", field: "minor" },
+    {
+      label: "Description",
+      field: "description",
+      render: (row) => (
+        <>
+          {row.description}
+          {row.note && <div className="note">{row.note}</div>}
+        </>
+      ),
+    },
+  ];
+```
+
+I quickly need to add the "Component Test" section of the second table:
+We just have to call the paragraph:
+```
+<p>{componentTest.preconditions}</p>
+```
+And the ordered sqeuence:
+```
+<ol>
+  {componentTest.steps.map((step) => (
+    <li key={step.code}>
+      <strong>{step.code}</strong> — {step.action}
+    </li>
+  ))}
+</ol>
+```
+I added the <strong> tags to remind myself that I want to change the font of the screen displays
+I have a few left over in the other table.
+
+Now I work on styling:
+I want to add a scrollable region
+Make each row a card
+
+I make DataTables.css and import it into DataTables.jsx
+
+For responsive behavior I used the accessible scroll-region pattern.
+Reference: Adrian Roselli, "Under-Engineered Responsive Tables. https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+I made a basic test.html and test.css to begin this project just to make a basic mobile responsive table.
 
 TODO: 
-build menu navigation table
+[x] build menu navigation table
+[x] add note field back to DataTable
+[] add component test
 change the font of text that is clearly supposed to mimic what the user would be seeing on the furnace/device
 style tables
+    [] - make columns span down if the same number
+    [] - notes
+    [] - component test needs to look like a table
 add descriptions + qr codes
 
