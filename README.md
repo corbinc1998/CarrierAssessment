@@ -41,7 +41,7 @@ Stop it with `Ctrl+C`.
 
 First I just created a table. And made note of a [mobile responsive checklist](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Mobile_accessibility_checklist)
 
-I know that the image is an `.svg`, I did think about attempting to parse it, however there are no text nodes present in it. If there were we could utilize `DOMParser`.
+I know that the image is an `.svg`, I did think about attempting to parse it, however there are no text nodes present in it. If there were I could utilize `DOMParser`.
 
 ```js
 const parser = new DOMParser();
@@ -75,7 +75,7 @@ export const = statusCodes = [
 
 I make a note of merged columns and rows, and decide to give an optional "note" field for my object.
 Here is the example in the table:
-(SS1)
+[SS1](src/assets/SS1.png)
 
 ```js
 {major: "10", minor: "1", description: "L1 polarity fault", note: "LED: rapid flash"},
@@ -173,8 +173,8 @@ const columns = [
 ]
 ```
 
-I want to use useId from react so ids are not duplicated since we are rendering the tables - this will increment all ids to make them unique.
-In DataTable.jsx we loop through the column map to display the column headers
+I want to use useId from react so ids are not duplicated since I are rendering the tables - this will increment all ids to make them unique.
+In DataTable.jsx I loop through the column map to display the column headers
 
 ```jsx
 {columns.map((col) => (
@@ -257,8 +257,7 @@ export const statusColumns = [
   ];
 ```
 
-I quickly need to add the "Component Test" section of the second table:
-We just have to call the paragraph:
+I quickly need to add the "Component Test" section of the second table I just have to call the paragraph:
 
 ```jsx
 <p>{componentTest.preconditions}</p>
@@ -335,6 +334,21 @@ I generated a new qr code. I used [qr.io](https://qr.io/?gad_source=1&gad_campai
 I elected to not use the service label image, as I couldnt get a clean version of it and am also assuming I would have access to this asset
 in a real work situation.
 
+
+
+## Trade-offs / If I didn't run out of time
+
+- I opted to just do a single tall table. This worked well for mobile AND desktop. They read very well on mobile, which is where most people will see it.
+
+- I didn't get to merge the repeating numbers into one big column as seen in the image provided. Like 34 in the Major column. 
+
+- I didn't fully merge the note into the description. This can be seen on "Rapid flash LED" underneath Major 10 and Minor 1. The Description is made to take up those 2 rows.
+
+- I didn't use the service label image as every method I tried to get it I would get part of the border with the image (the outline).
+
+- I didn't get to implement a font change for what in the image is font that mimics the display on the device being used.
+
+
 ## TODO
 
 
@@ -346,8 +360,3 @@ in a real work situation.
 - [x] - notes
 - [x] - component test needs to look like a table
 - [x] add descriptions + qr codes
-
-
-Shipping as a single tall table trade off for a responsive table.
-Shipping with repeating numbers in columns.
-I might ship without changing the font to clearly mimic where the table is showing what the display of the device might look like.
