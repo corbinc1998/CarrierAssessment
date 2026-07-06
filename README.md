@@ -1,6 +1,6 @@
 # Carrier Assessment
 
-*Solution Webpage*
+**Solution Webpage**
 
 First I just created a table. And made note of a [mobile responsive checklist](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Mobile_accessibility_checklist)
 
