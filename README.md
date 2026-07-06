@@ -2,6 +2,40 @@
 
 **Solution Webpage**
 
+
+## Running Locally
+
+### First time (or a fresh clone from GitHub)
+
+```bash
+git clone https://github.com/corbinc1998/CarrierAssessment.git
+cd CarrierAssessment
+npm install
+npm run dev
+```
+
+### Already have the project
+
+```bash
+npm run dev
+```
+
+`npm run dev` starts the dev server and prints a local URL (usually
+`http://localhost:5173`). Open it in your browser — it hot-reloads on save.
+Stop it with `Ctrl+C`.
+
+### All scripts
+
+| Command | What it does |
+|---|---|
+| `npm install` | Install dependencies (first time / after a fresh clone) |
+| `npm run dev` | Start the local dev server with hot reload |
+| `npm run build` | Build the production bundle into `dist/` |
+| `npm run preview` | Serve the built `dist/` locally (closest to the live site) |
+
+
+## Live Updated Notes
+
 First I just created a table. And made note of a [mobile responsive checklist](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Mobile_accessibility_checklist)
 
 I know that the image is an `.svg`, I did think about attempting to parse it, however there are no text nodes present in it. If there were we could utilize `DOMParser`.
