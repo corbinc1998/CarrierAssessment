@@ -334,17 +334,16 @@ in a real work situation.
 
 ## TODO
 
-```
-[x] build menu navigation table
-[x] add note field back to DataTable
-[x] add component test
-[] change the font of text that is clearly supposed to mimic what the user would be seeing on the furnace/device
-style tables
-    [] - make columns span down if the same number
-    [] - notes
-    [x] - component test needs to look like a table
-[x] add descriptions + qr codes
-```
+
+- [x] build menu navigation table
+- [x] add note field back to DataTable
+- [x] add component test
+- [] change the font of text that is clearly supposed to mimic what the user would be seeing on the furnace/device
+- [] - make columns span down if the same number
+- [x] - notes
+- [x] - component test needs to look like a table
+- [x] add descriptions + qr codes
+
 
 Shipping as a single tall table trade off for a responsive table.
 Shipping with repeating numbers in columns.
