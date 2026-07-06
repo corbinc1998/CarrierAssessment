@@ -2,7 +2,10 @@
 
 ## **Solution Webpage**
 
-**[https://carrier-assessment.vercel.app/]**(https://carrier-assessment.vercel.app/)
+**https://carrier-assessment.vercel.app/**
+
+
+
 (also will be emailed to Kathryn)
 
 
@@ -361,3 +364,15 @@ in a real work situation.
 - [x] - notes
 - [x] - component test needs to look like a table
 - [x] add descriptions + qr codes
+
+
+
+## Deployment
+
+Deployed with [Vercel](https://vercel.com), which builds and hosts the Vite app
+directly from this GitHub repo. Every push to the main branch triggers an
+automatic redeploy.
+
+- Framework preset: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
