@@ -220,6 +220,52 @@ I make DataTables.css and import it into DataTables.jsx
 For responsive behavior I used the accessible scroll-region pattern.
 Reference: Adrian Roselli, "Under-Engineered Responsive Tables. https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
 I made a basic test.html and test.css to begin this project just to make a basic mobile responsive table.
+I modified the look to try to replicate the .svg given to me.
+
+I now need to update the notes field because I want it to display in it's own row as intended.
+I will be using Fragment: https://react.dev/reference/react/Fragment
+I will be removing the note from the statusColumns and implementing it into the DataTable.jsx file.
+This code allows a normal row to be rendered AND a note row - only displays a note when there is a note (the conditional at the bottom):
+```
+{rows.map((row) => (
+  <Fragment key={getRowKey(row)}>
+    <tr>
+      {columns.map((col) => (
+        <td key={col.field}>
+          {col.render ? col.render(row) : row[col.field]}
+        </td>
+      ))}
+    </tr>
+    {row.note && (
+      <tr>
+        <td colSpan={columns.length} className="note-row">{row.note}</td>
+      </tr>
+    )}
+  </Fragment>
+))}
+```
+This makes the note it's own row. However, I need it to flow into the description before it. I might just have to comeback to that.
+
+I add styling to make Component Test look like a table:
+```
+.component-test {
+  border: 1px solid #000;
+  padding: 1rem;
+  margin-bottom: 1.5em;
+}
+.component-test h2 { margin-top: 0; }
+.component-test p { margin-bottom: 1rem; }
+.component-test ol { padding-left: 1.5rem; }
+.component-test li { margin-bottom: 0.5rem; }
+```
+
+I generated a new qr code. I used https://qr.io/?gad_source=1&gad_campaignid=11398459434&gbraid=0AAAAAC6IOXLGor0p4_B6fd-eNu51r_WXp&gclid=CjwKCAjwpK3SBhASEiwAtV1SPBPE3um-qpdX2rfj6vlEBn0VkD7EshO0i8w7zanRHxvQJQhf7JbYIRoChvMQAvD_BwE
+
+I elected to not use the service label image, as I couldnt get a clean version of it/ and am also assuming I would have access to this asset
+in a real work situation.
+
+I also need to style the md file but I am just roughly sketching my work.
+
 
 TODO: 
 [x] build menu navigation table
@@ -229,6 +275,9 @@ change the font of text that is clearly supposed to mimic what the user would be
 style tables
     [] - make columns span down if the same number
     [] - notes
-    [] - component test needs to look like a table
-add descriptions + qr codes
+    [x] - component test needs to look like a table
+[x] add descriptions + qr codes
+
+Shipping as a single tall table trade off for a responsive table.
+Shipping with repeating numbers in columns. 
 

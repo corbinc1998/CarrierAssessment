@@ -1,4 +1,4 @@
-import { useId } from "react"
+import { Fragment, useId } from "react"
 import "./DataTable.css";
 // columns:
 // const columns = [
@@ -22,14 +22,21 @@ function DataTable ({caption, columns, rows, getRowKey}){
                     </tr>
                 </thead>
                 <tbody>
-                    {rows.map((row) => (
-                        <tr key={getRowKey(row)}>
-                            {columns.map((col) =>(
+                {rows.map((row) => (
+                    <Fragment key={getRowKey(row)}>
+                        <tr>
+                            {columns.map((col) => (
                                 <td key={col.field}>
                                     {col.render ? col.render(row) : row[col.field]}
-                                </td>
-                            ))}
+                                 </td>
+                             ))}
                         </tr>
+                {row.note && (
+                     <tr>
+                         <td colSpan={columns.length} className="note-row">{row.note}</td>
+                    </tr>
+                         )}
+                    </Fragment>
                     ))}
                 </tbody>
             </table>

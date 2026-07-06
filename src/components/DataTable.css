@@ -46,6 +46,11 @@ th {
   font-style: italic;
 }
 
+.note-row td {
+  border-top: none;
+  font-style: italic;
+}
+
 
 ol {
   line-height: 1.6;

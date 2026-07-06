@@ -9,15 +9,7 @@
 export const statusColumns = [
     { label: "Major", field: "major" },
     { label: "Minor", field: "minor" },
-    {
-      label: "Description",
-      field: "description",
-      render: (row) => (
-        <>
-          {row.description}
-          {row.note && <div className="note">{row.note}</div>}
-        </>
-      ),
+    { label: "Description", field: "description",
     },
   ];
 
