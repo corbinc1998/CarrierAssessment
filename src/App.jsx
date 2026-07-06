@@ -5,7 +5,6 @@ import { displayColumns, mainMenu, systemStatus } from './data/displayReference'
 import DataTable from './components/DataTable'
 import { componentTest } from './data/componentTest';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
