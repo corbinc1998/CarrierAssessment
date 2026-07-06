@@ -338,8 +338,8 @@ in a real work situation.
 - [x] build menu navigation table
 - [x] add note field back to DataTable
 - [x] add component test
-- [] change the font of text that is clearly supposed to mimic what the user would be seeing on the furnace/device
-- [] - make columns span down if the same number
+- [ ] change the font of text that is clearly supposed to mimic what the user would be seeing on the furnace/device
+- [ ] - make columns span down if the same number
 - [x] - notes
 - [x] - component test needs to look like a table
 - [x] add descriptions + qr codes
