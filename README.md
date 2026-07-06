@@ -329,10 +329,8 @@ I add styling to make Component Test look like a table:
 
 I generated a new qr code. I used [qr.io](https://qr.io/?gad_source=1&gad_campaignid=11398459434&gbraid=0AAAAAC6IOXLGor0p4_B6fd-eNu51r_WXp&gclid=CjwKCAjwpK3SBhASEiwAtV1SPBPE3um-qpdX2rfj6vlEBn0VkD7EshO0i8w7zanRHxvQJQhf7JbYIRoChvMQAvD_BwE)
 
-I elected to not use the service label image, as I couldnt get a clean version of it/ and am also assuming I would have access to this asset
+I elected to not use the service label image, as I couldnt get a clean version of it and am also assuming I would have access to this asset
 in a real work situation.
-
-I also need to style the md file but I am just roughly sketching my work.
 
 ## TODO
 
