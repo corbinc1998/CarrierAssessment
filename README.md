@@ -376,3 +376,21 @@ automatic redeploy.
 - Framework preset: Vite
 - Build command: `npm run build`
 - Output directory: `dist`
+
+
+## References & Credits
+
+- **Responsive table pattern** — Adrian Roselli, "Under-Engineered Responsive Tables"
+  https://adrianroselli.com/2020/11/under-engineered-responsive-tables.html
+  (Used the accessible scroll-region approach for keeping table semantics on mobile.)
+
+- **Mobile accessibility checklist** — MDN Web Docs
+  https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Mobile_accessibility_checklist
+
+- **React `useId`** — https://react.dev/reference/react/useId
+- **React `Fragment`** — https://react.dev/reference/react/Fragment
+
+- **Vite** — build tooling and dev server
+  https://vite.dev/guide/
+
+- **QR code** — generated with https://qr.io
